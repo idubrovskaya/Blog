@@ -1,0 +1,39 @@
+.navbar {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  height: 295px;
+  background: #016efc;
+}
+
+.close {
+  /* padding: 58px 1200px 207.29px 242px; */
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+
+.link {
+  /* width: 166px;
+  height: 29px; */
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 29px;
+  /* letter-spacing: 0.05em; */
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.active {
+  text-decoration: underline;
+}
+
+li {
+  list-style: none;
+}
+
+.navigation {
+  /* padding: 135px 1046px 134px 357px; */
+}

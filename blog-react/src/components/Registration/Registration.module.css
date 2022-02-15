@@ -1,0 +1,16 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 100px 0 70px;
+}
+
+.inactive {
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  color: #75869b;
+}
