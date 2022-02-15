@@ -1,0 +1,31 @@
+.header {
+  display: flex;
+  background: #f8fafe;
+  padding: 50px 50px 54px 234px;
+}
+
+.menu {
+  border: none;
+  border-radius: 0%;
+  width: auto;
+  height: auto;
+  margin-right: 45px;
+}
+
+.icon {
+  border: none;
+  border-radius: 0%;
+  width: auto;
+  height: auto;
+  margin-right: 13px;
+}
+
+.username {
+  margin: 0;
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 145.2%;
+  color: #016efc;
+}
