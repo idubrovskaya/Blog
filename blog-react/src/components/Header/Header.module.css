@@ -10,6 +10,7 @@
   width: auto;
   height: auto;
   margin-right: 45px;
+  cursor: pointer;
 }
 
 .icon {
@@ -18,6 +19,7 @@
   width: auto;
   height: auto;
   margin-right: 13px;
+  cursor: pointer;
 }
 
 .username {

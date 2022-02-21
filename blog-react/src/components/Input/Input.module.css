@@ -1,8 +1,3 @@
-.formElement {
-  display: flex;
-  padding: 20px 0;
-}
-
 .label {
   font-family: 'Raleway';
   font-style: normal;
@@ -19,7 +14,7 @@
   width: 372px;
   height: 63px;
   padding: 0 15px;
-  margin-top: 15px;
+  margin: 10px 0 20px;
   background: #f5f9ff;
   border: 4px solid #82a9ff;
   box-sizing: border-box;
@@ -32,6 +27,7 @@
   letter-spacing: 0.05em;
   color: #254050;
 }
+
 .input:focus-visible {
   outline-style: none;
 }

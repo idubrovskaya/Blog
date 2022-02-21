@@ -1,15 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button } from '../Button/Button';
-import { PostCard, IProps } from './PostCard';
+import { PostCard } from './PostCard';
+import styles from './PostCard.module.css';
+import { IState } from '../../redux/store';
+import { addPost } from '../../redux/actions/postActions';
 
 export const Post = () => {
-  const [post, setPost] = useState<IProps>();
-
   const history = useHistory();
 
-  const params: any = useParams();
+  const params: { postId: string } = useParams();
 
+  const dispatch = useDispatch();
+  const post = useSelector((state: IState) => state.postReducer.post);
   useEffect(() => {
     getPostInfo();
   }, []);
@@ -19,12 +23,13 @@ export const Post = () => {
       'https://studapi.teachmeskills.by/blog/posts/' + params.postId
     );
     const post = await res.json();
-    setPost(post);
+    dispatch(addPost(post));
   };
 
   return post ? (
-    <div>
+    <div className={styles.post}>
       <PostCard
+        key={post.id}
         id={post.id}
         title={post.title}
         image={post.image}

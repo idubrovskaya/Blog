@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
-import styles from './NavBar.module.css';
 import { Context } from '../../App';
 import { SwitchThemeToggle } from '../SwitchThemeToggle/SwitchThemeToggle';
+import styles from './NavBar.module.css';
 
-export interface IProps {
+export interface INavbar {
   closeNavbar: () => void;
 }
 
-export const Navbar = ({ closeNavbar }: IProps) => {
+export const Navbar = ({ closeNavbar }: INavbar) => {
   const { isDark, changeIsDark } = useContext(Context);
   return (
     <div className={styles.navbar}>
@@ -16,7 +16,7 @@ export const Navbar = ({ closeNavbar }: IProps) => {
         className={styles.close}
         src='img/cross_copy.svg'
         onClick={closeNavbar}
-        alt='img'
+        alt='close'
       />
       <div className={styles.navigation}>
         <ul>
@@ -55,11 +55,7 @@ export const Navbar = ({ closeNavbar }: IProps) => {
           </li>
         </ul>
       </div>
-      <SwitchThemeToggle
-        onClick={() => {
-          changeIsDark();
-        }}
-      />{' '}
+      <SwitchThemeToggle onClick={changeIsDark} />{' '}
     </div>
   );
 };

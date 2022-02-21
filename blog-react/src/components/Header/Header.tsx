@@ -8,6 +8,7 @@ export const Header = () => {
   const closeNavbar = () => {
     setIsActive(false);
   };
+
   return (
     <nav className={styles.header}>
       {isActive ? <Navbar closeNavbar={closeNavbar} /> : null}
@@ -15,10 +16,11 @@ export const Header = () => {
       <img
         className={styles.menu}
         src='img/Menu.svg'
+        alt='burger-menu'
         onClick={() => setIsActive(true)}
       />
 
-      <img className={styles.icon} src='img/icon.svg' />
+      <img className={styles.icon} src='img/icon.svg' alt='icon' />
       <h2 className={styles.username}>Username</h2>
     </nav>
   );

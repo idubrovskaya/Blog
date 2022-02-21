@@ -2,6 +2,7 @@ export const darkTheme = {
   text: '#ffffff',
   title: '#FFFFFF',
   backgroundCard: '#016efc',
+
   date: '#FFFFFF',
 };
 

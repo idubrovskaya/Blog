@@ -58,3 +58,9 @@ img {
   line-height: 19px;
   color: #016efc;
 }
+
+.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

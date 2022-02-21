@@ -1,6 +1,7 @@
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { SubscriptionTitle } from '../SubscriptionTitle/SubscriptionTitle';
+import { NavLink } from 'react-router-dom';
 import styles from './Registration.module.css';
 
 export const Registration = () => {
@@ -20,7 +21,12 @@ export const Registration = () => {
           onChange={() => {}}
         />
         <Button text='Login' onClick={() => {}} />
-        <p>If you have account, you can login</p>
+        <p className={styles.info}>
+          If you have account, you can{' '}
+          <NavLink to='/login' className={styles.login}>
+            login
+          </NavLink>{' '}
+        </p>
       </div>
     </div>
   );

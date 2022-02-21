@@ -8,13 +8,11 @@ export interface IInput {
   onChange: ChangeEventHandler<HTMLInputElement>;
 }
 
-export const Input = ({ value, type, label, onChange }: IInput) => {
+export const Input = ({ type, label, onChange }: IInput) => {
   return (
-    <form className={styles.formElement}>
-      <label className={styles.label}>
-        {label}
-        <input onChange={onChange} type={type} className={styles.input}></input>
-      </label>
-    </form>
+    <label className={styles.label}>
+      {label}
+      <input onChange={onChange} type={type} className={styles.input}></input>
+    </label>
   );
 };

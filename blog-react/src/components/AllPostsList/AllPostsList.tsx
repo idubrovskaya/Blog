@@ -1,22 +1,28 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { PostCard, IProps } from '../Post/PostCard';
+import { PostCard } from '../Post/PostCard';
 import { Button } from '../Button/Button';
 import styles from './AllPostsList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { IState } from '../../redux/store';
+import { addAllPosts } from '../../redux/actions/allpostsActions';
 
 const POST_PER_PAGE = 5;
 
 export const AllPostsList = () => {
-  const [posts, setPosts] = useState<IProps[]>([]);
   const [offset, setOffset] = useState(0);
   const history = useHistory();
+  const posts = useSelector((state: IState) => state.allpostsReducer.posts);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     fetch(
       `https://studapi.teachmeskills.by/blog/posts/?limit=${POST_PER_PAGE}&offset=${offset}`
     )
       .then((response) => response.json())
-      .then((result) => setPosts([...posts, ...result.results]));
+      .then((result) => {
+        dispatch(addAllPosts([...posts, ...result.results]));
+      });
   }, [offset]);
 
   const showMore = useCallback(() => {
@@ -25,7 +31,7 @@ export const AllPostsList = () => {
 
   return (
     <div className={styles.wrapper}>
-      {posts.map((post: IProps) => {
+      {posts.map((post) => {
         return (
           <PostCard
             key={post.id}

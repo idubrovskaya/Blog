@@ -6,9 +6,9 @@ export const SubscriptionTitle = () => {
     <div className={styles.subscriptionTitle}>
       <p className={styles.inactive}>
         <NavLink to='/login' activeStyle={{ color: '#016efc' }}>
-          Login |
+          Login
         </NavLink>
-        {/* <p className={styles.borderline}>|</p> */}
+        <span className={styles.borderline}>|</span>
         <NavLink to='/registration' activeStyle={{ color: '#016efc' }}>
           Registration
         </NavLink>
