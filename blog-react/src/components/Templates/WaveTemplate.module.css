@@ -1,0 +1,9 @@
+.mainBody {
+  max-width: 100%;
+}
+
+.backgroundWave {
+  display: block;
+  margin-left: auto;
+  margin-top: 33px;
+}

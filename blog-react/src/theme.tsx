@@ -1,0 +1,36 @@
+export const darkTheme = {
+  buttonBack: '#FFFFFF',
+  preloader: '#FFFFFF',
+  contentTitle: '#FFFFFF',
+  background: '#007BFF',
+  backgroundCircles: '#FFFFFF',
+  label: '#FFFFFF',
+  text: '#ffffff',
+  title: '#FFFFFF',
+  backgroundCard: '#016efc',
+  backgroundNavbar: '#016efc',
+  textNavigation: '#FFFFFF',
+  date: '#FFFFFF',
+  buttonTheme: '#0060DC',
+  menu: 'brightness(0) invert(1)',
+  username: '#FFFFFF',
+};
+
+export const lightTheme = {
+  buttonBack: '#016efc',
+  preloader: '#016efc',
+  contentTitle: '#016efc',
+  background: '#F8FAFE',
+  backgroundCircles: '#007BFF',
+
+  label: '#254050',
+  text: '#979797',
+  title: '#4f4f4f',
+  backgroundCard: '#FFFFFF',
+  backgroundNavbar: '#F5F9FF',
+  textNavigation: '#016efc',
+  date: '#016efc',
+  buttonTheme: '#016efc',
+  menu: 'none',
+  username: '#016efc',
+};

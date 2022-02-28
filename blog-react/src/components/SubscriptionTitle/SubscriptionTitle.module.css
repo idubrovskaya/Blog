@@ -1,0 +1,25 @@
+.subscriptionTitle {
+  text-align: center;
+}
+
+.inactive a {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  color: #75869b;
+}
+
+.borderline {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 145.2%;
+  letter-spacing: 0.03em;
+  margin: 0 20px;
+  color: #254050;
+}
