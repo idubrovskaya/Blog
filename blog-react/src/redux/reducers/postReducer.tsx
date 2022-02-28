@@ -29,5 +29,11 @@ export const postReducer = (state = defaultState, action: any) => {
       post: action.post,
     };
   }
+  if (action.type === ACTIONS.CLEAR_POST) {
+    return {
+      ...state,
+      post: { id: 0, title: '', text: '', image: '', date: '' },
+    };
+  }
   return state;
 };

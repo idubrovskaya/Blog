@@ -4,6 +4,7 @@ import { RootRouter } from './navigation/RootRouter';
 import { lightTheme, darkTheme } from './theme';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
+import { useContext } from 'react';
 
 export const Context = createContext({
   isDark: false,
@@ -23,7 +24,12 @@ function App() {
       <Context.Provider
         value={{ isDark, changeIsDark, theme: isDark ? darkTheme : lightTheme }}
       >
-        <div className='App'>
+        <div
+          className='App'
+          style={{
+            background: isDark ? darkTheme.background : lightTheme.background,
+          }}
+        >
           <RootRouter />
         </div>
       </Context.Provider>

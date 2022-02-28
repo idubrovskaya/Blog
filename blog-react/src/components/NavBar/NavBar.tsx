@@ -9,22 +9,27 @@ export interface INavbar {
 }
 
 export const Navbar = ({ closeNavbar }: INavbar) => {
-  const { isDark, changeIsDark } = useContext(Context);
+  const { theme, isDark, changeIsDark } = useContext(Context);
   return (
-    <div className={styles.navbar}>
-      <img
-        className={styles.close}
-        src='img/cross_copy.svg'
-        onClick={closeNavbar}
-        alt='close'
-      />
+    <div
+      className={styles.navbar}
+      style={{ background: theme.backgroundNavbar }}
+    >
       <div className={styles.navigation}>
+        <img
+          className={styles.close}
+          style={{ filter: theme.menu }}
+          src='img/cross_copy.svg'
+          onClick={closeNavbar}
+          alt='close'
+        />
         <ul>
           <li>
             {' '}
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
+              style={{ color: theme.textNavigation }}
               exact
               to='/'
             >
@@ -36,6 +41,7 @@ export const Navbar = ({ closeNavbar }: INavbar) => {
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
+              style={{ color: theme.textNavigation }}
               exact
               to='/login'
             >
@@ -47,6 +53,7 @@ export const Navbar = ({ closeNavbar }: INavbar) => {
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
+              style={{ color: theme.textNavigation }}
               exact
               to='/registration'
             >
@@ -54,8 +61,11 @@ export const Navbar = ({ closeNavbar }: INavbar) => {
             </NavLink>
           </li>
         </ul>
+        <SwitchThemeToggle
+          inputChecked={isDark ? true : false}
+          onClick={changeIsDark}
+        />{' '}
       </div>
-      <SwitchThemeToggle onClick={changeIsDark} />{' '}
     </div>
   );
 };

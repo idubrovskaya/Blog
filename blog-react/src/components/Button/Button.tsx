@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { Context } from '../../App';
 import styles from './Button.module.css';
 
 export interface IButton {
@@ -6,8 +8,13 @@ export interface IButton {
 }
 
 export const Button = ({ text, onClick }: IButton) => {
+  const { theme } = useContext(Context);
   return (
-    <button className={styles.button} onClick={onClick}>
+    <button
+      className={styles.button}
+      onClick={onClick}
+      style={{ background: theme.buttonTheme }}
+    >
       {text}
     </button>
   );

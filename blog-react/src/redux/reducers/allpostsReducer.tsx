@@ -1,19 +1,14 @@
 import { ACTIONS } from '../constants';
-
-export interface IPost {
-  id: number;
-  title: string;
-  text: string;
-  image: string;
-  date: string;
-}
+import { IPost } from './postReducer';
 
 export interface IPostsState {
   posts: IPost[];
+  searchedPostsRequest: '';
 }
 
 const defaultState: IPostsState = {
   posts: [],
+  searchedPostsRequest: '',
 };
 
 export const allpostsReducer = (state = defaultState, action: any) => {
@@ -21,6 +16,12 @@ export const allpostsReducer = (state = defaultState, action: any) => {
     return {
       ...state,
       posts: action.posts,
+    };
+  }
+  if (action.type === ACTIONS.SEARCH_REQUEST) {
+    return {
+      ...state,
+      posts: action.searchedPostsRequest,
     };
   }
   return state;

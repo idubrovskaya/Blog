@@ -1,33 +1,30 @@
+.headerContainer {
+  max-width: 100%;
+  position: relative;
+}
+
 .header {
   display: flex;
-  background: #f8fafe;
-  padding: 50px 50px 54px 234px;
+  padding: 60px 200px;
 }
 
 .menu {
-  border: none;
-  border-radius: 0%;
-  width: auto;
-  height: auto;
   margin-right: 45px;
   cursor: pointer;
 }
 
 .icon {
-  border: none;
-  border-radius: 0%;
-  width: auto;
-  height: auto;
   margin-right: 13px;
   cursor: pointer;
 }
 
 .username {
   margin: 0;
-  font-family: Raleway;
+  font-family: 'Raleway';
   font-style: normal;
   font-weight: bold;
   font-size: 24px;
   line-height: 145.2%;
+  letter-spacing: 0.03em;
   color: #016efc;
 }

@@ -19,7 +19,10 @@ export const PostCard = ({ title, text, image, date, onClick }: IPostCard) => {
       onClick={onClick}
       style={{ background: theme.backgroundCard }}
     >
-      <img src={image} alt=' ' />
+      <div className={styles.image}>
+        <img src={image ? image : 'img/default_img.png'} alt='postImage' />
+      </div>
+
       <h2 className={styles.title} style={{ color: theme.title }}>
         {title}
       </h2>
@@ -27,7 +30,7 @@ export const PostCard = ({ title, text, image, date, onClick }: IPostCard) => {
         {text}{' '}
       </p>
       <p className={styles.date} style={{ color: theme.date }}>
-        {date}{' '}
+        {date.split('-').reverse().join('.')}{' '}
       </p>
     </div>
   );
