@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/Blog/static/css/main.59df1467.css",
+    "main.js": "/Blog/static/js/main.61eff261.js",
+    "static/js/787.ce43ad27.chunk.js": "/Blog/static/js/787.ce43ad27.chunk.js",
+    "index.html": "/Blog/index.html",
+    "static/media/moon_slider_dark.svg": "/Blog/static/media/moon_slider_dark.4a8c2531e82ed7beb0ad.svg",
+    "static/media/moon_slider_light.svg": "/Blog/static/media/moon_slider_light.0f02a99fe1db30e4f007.svg",
+    "main.59df1467.css.map": "/Blog/static/css/main.59df1467.css.map",
+    "main.61eff261.js.map": "/Blog/static/js/main.61eff261.js.map",
+    "787.ce43ad27.chunk.js.map": "/Blog/static/js/787.ce43ad27.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.59df1467.css",
+    "static/js/main.61eff261.js"
+  ]
+}
