@@ -3,10 +3,16 @@ import { useState } from 'react';
 import { Navbar } from '../NavBar/NavBar';
 import { useContext } from 'react';
 import { Context } from '../../App';
+import { useSelector } from 'react-redux';
+import { IState } from '../../redux/store';
 
 export const Header = () => {
   const [isActive, setIsActive] = useState(false);
   const { theme } = useContext(Context);
+
+  const { isLoggedIn, username } = useSelector(
+    (state: IState) => state.authReducer
+  );
 
   const closeNavbar = () => {
     setIsActive(false);
@@ -30,9 +36,11 @@ export const Header = () => {
           alt='icon'
           style={{ filter: theme.menu }}
         />
-        <h2 className={styles.username} style={{ color: theme.username }}>
-          Username
-        </h2>
+        {isLoggedIn ? (
+          <p className={styles.username} style={{ color: theme.username }}>
+            {username}
+          </p>
+        ) : null}
       </div>
     </nav>
   );

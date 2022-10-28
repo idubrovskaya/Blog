@@ -2,23 +2,12 @@ import { Dispatch } from 'redux';
 import { ACTIONS } from '../constants';
 import { IPost, IPostState } from '../reducers/postReducer';
 
-export const addAllPosts = (posts: any) => {
+export const addAllPosts = (posts: IPostState[]) => {
   return {
     type: ACTIONS.ADD_ALL_POSTS,
     posts: posts,
   };
 };
-
-export function fetchPosts() {
-  return async (dispatch: Dispatch) => {
-    const response = await fetch(
-      `https://studapi.teachmeskills.by/blog/posts/?limit=100`
-    );
-    const result = await response.json();
-
-    dispatch(addAllPosts(result.results));
-  };
-}
 
 export const clearPost = () => {
   return {

@@ -1,12 +1,15 @@
 import { Input } from '../Input/Input';
 import { Button } from '../Button/Button';
 import { SubscriptionTitle } from '../SubscriptionTitle/SubscriptionTitle';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import styles from './Registration.module.css';
 import { WaveTemplate } from '../Templates/WaveTemplate';
-import { useCallback, useContext, useState } from 'react';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { validationService } from '../../services/validation';
 import { Context } from '../../App';
+import { useDispatch, useSelector } from 'react-redux';
+import { register } from '../../redux/actions/authActions';
+import { IState } from '../../redux/store';
 
 export const Registration = () => {
   const { theme } = useContext(Context);
@@ -14,6 +17,15 @@ export const Registration = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const dispatch = useDispatch();
+  const error = useSelector((state: IState) => state.authReducer.error);
+  const emailState = useSelector((state: IState) => state.authReducer.email);
+  const history = useHistory();
+  useEffect(() => {
+    if (emailState) {
+      history.push('/register_confirm');
+    }
+  }, [emailState]);
 
   const [errors, setErrors] = useState({
     username: '',
@@ -66,7 +78,17 @@ export const Registration = () => {
       ),
     };
     setErrors(errors);
+
+    const values = Object.values(errors);
+    const isValid = values.every((value) => value === '');
+    if (isValid) {
+      dispatch(register({ username, email, password }));
+    }
   };
+  console.log({ error });
+
+  const errorValues = error ? Object.values(error).flat() : '';
+  console.log(errorValues);
 
   return (
     <div>
@@ -107,6 +129,7 @@ export const Registration = () => {
             onChange={onChangeConfirmPassword}
             onKeyDown={() => {}}
           />
+          <p className={styles.errorValue}>{errorValues}</p>
           <Button text='Login' onClick={onClick} />
           <p className={styles.info}>
             If you have account, you can{' '}

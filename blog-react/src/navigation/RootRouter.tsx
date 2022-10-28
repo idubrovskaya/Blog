@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { AllPostsList } from '../components/AllPostsList/AllPostsList';
@@ -10,9 +10,21 @@ import { Post } from '../components/Post/Post';
 import { ResetPassword } from '../components/ResetPassword/ResetPassword';
 import { ResetConfirm } from '../components/ResetConfirm/ResetConfirm';
 import { Error } from '../components/Error/Error';
+import { RegisterConfirmation } from '../components/RegisterConfirmation/RegisterConfirmation';
+import { useDispatch, useSelector } from 'react-redux';
+import { init } from '../redux/actions/authActions';
+import { IState } from '../redux/store';
 
 export const RootRouter = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = useSelector(
+    (state: IState) => state.authReducer.isLoggedIn
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(init());
+  }, []);
 
   return (
     <BrowserRouter>
@@ -27,6 +39,8 @@ export const RootRouter = () => {
         <Route path='/registration' component={Registration} />
         <Route path='/reset_password' component={ResetPassword} />
         <Route path='/reset_confirm' component={ResetConfirm} />
+        {isLoggedIn ? <AddNewPost /> : <Redirect to='/login' />}
+        <Route path='/register_confirm' component={RegisterConfirmation} />
         <Route path='*' component={Error} />
       </Switch>
     </BrowserRouter>

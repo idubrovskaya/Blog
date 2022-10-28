@@ -1,10 +1,9 @@
 import './App.css';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { RootRouter } from './navigation/RootRouter';
 import { lightTheme, darkTheme } from './theme';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
-import { useContext } from 'react';
 
 export const Context = createContext({
   isDark: false,
@@ -13,11 +12,17 @@ export const Context = createContext({
 });
 
 function App() {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(
+    localStorage.getItem('isDark') === 'true'
+  );
 
   const changeIsDark = () => {
     setIsDark((isDark) => !isDark);
   };
+
+  useEffect(() => {
+    localStorage.setItem('isDark', JSON.stringify(isDark));
+  }, [isDark]);
 
   return (
     <Provider store={store}>

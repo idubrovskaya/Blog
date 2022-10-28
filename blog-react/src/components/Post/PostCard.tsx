@@ -27,10 +27,10 @@ export const PostCard = ({ title, text, image, date, onClick }: IPostCard) => {
         {title}
       </h2>
       <p className={styles.text} style={{ color: theme.text }}>
-        {text}{' '}
+        {text}
       </p>
       <p className={styles.date} style={{ color: theme.date }}>
-        {date.split('-').reverse().join('.')}{' '}
+        {date.split('-').reverse().join('.')}
       </p>
     </div>
   );

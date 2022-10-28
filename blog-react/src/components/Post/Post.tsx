@@ -12,10 +12,10 @@ export const Post = () => {
   const { theme } = useContext(Context);
 
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const params: { postId: string } = useParams();
 
-  const dispatch = useDispatch();
   const post = useSelector((state: IState) => state.postReducer.post);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ export const Post = () => {
           history.goBack();
         }}
       >
-        &lt; Back{' '}
+        &lt; Back
       </p>
 
       <PostCard

@@ -4,7 +4,7 @@ import { Context } from '../../App';
 import { SwitchThemeToggle } from '../SwitchThemeToggle/SwitchThemeToggle';
 import styles from './NavBar.module.css';
 
-export interface INavbar {
+interface INavbar {
   closeNavbar: () => void;
 }
 
@@ -25,46 +25,43 @@ export const Navbar = ({ closeNavbar }: INavbar) => {
         />
         <ul>
           <li>
-            {' '}
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
               style={{ color: theme.textNavigation }}
               exact
               to='/'
+              onClick={closeNavbar}
             >
               All posts
             </NavLink>
           </li>
           <li>
-            {' '}
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
               style={{ color: theme.textNavigation }}
               exact
               to='/login'
+              onClick={closeNavbar}
             >
               Login
             </NavLink>
           </li>
           <li>
-            {' '}
             <NavLink
               className={styles.link}
               activeClassName={styles.active}
               style={{ color: theme.textNavigation }}
               exact
               to='/registration'
+              onClick={closeNavbar}
             >
               Registration
             </NavLink>
           </li>
         </ul>
-        <SwitchThemeToggle
-          inputChecked={isDark ? true : false}
-          onClick={changeIsDark}
-        />{' '}
+        <SwitchThemeToggle inputChecked={isDark} onChange={changeIsDark} />
       </div>
     </div>
   );
