@@ -1,2 +1,2 @@
 # Blog
-https://idubrovskaya.github.io/Blog/
+https://dubrovskaya-blog.netlify.app
